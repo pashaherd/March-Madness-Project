@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Project Presentation</title>
+</head>
+<style>
+    *{
+        box-sizing:border-box; 
+        margin:0; 
+        padding:0; 
+    }
+
+    body{
+       background-color:rgb(50, 50, 92);
+       display:grid; 
+       place-items:center;  
+    }
+    .wrap{
+        width:90%; 
+        height:90vh; 
+        border:2px white solid; 
+        border-radius:2em;
+        display:flex; 
+        flex-direction:column; 
+        gap:4em; 
+        margin-top:2em; 
+    }
+    .wrap span{
+        margin-top:1em; 
+    }
+    .wrap h1{
+        color:white; 
+        text-shadow:0 0 3px blue;
+        text-align:center;  
+
+    }
+    .wrap p{
+        text-align:center; 
+        color:rgb(134, 115, 221); 
+    }
+    .pres{
+        width:100%; 
+        height:80%; 
+        display:flex; 
+    }
+    #mm{
+        max-width:300px; 
+        max-height:200px;
+        margin-bottom:1em;  
+    }
+    .btns{
+        width:auto; 
+        height:auto; 
+        position:absolute;
+        display:flex; 
+        gap:2em; 
+        right:40em; 
+        bottom:3.5em;    
+
+    }
+    #right,#left{
+        max-width:30px;
+        max-height:30px; 
+        filter:invert(100%); 
+        opacity:0.5; 
+
+    }
+    #right:hover, #left:hover{
+        opacity:1; 
+    }
+    #right:active, #left:active{
+        transform:scale(0.8); 
+    }
+    @media screen and (min-width:1000px){
+       .pres{
+        max-width:50%; 
+        justify-self:center; 
+        align-self:center; 
+        gap:1em; 
+       }
+    }
+</style>
+<body>
+    <div class="wrap">
+        <span>
+        <h1>March Madness Overview</h1>
+        <p>Whos Going To The NBA</p>
+        </span>
+        <div class="pres">
+            <img src="marchmadness.png" id="mm" alt=""/> 
+            <ul>
+                <li>
+                    <h1>Introduction</h1>
+                    <p>My Project Aims To Define Relationships Between The Statistical 
+                        Performance Of The Recent NCAA March Madness Tournaments Final Four. 
+                        Today, We Will Be Drawing Certain Conclusions Based On The Data Presented 
+                    </p>
+                </li>
+
+            </ul>
+            <div class="btns">
+                <img src="left-arrow.png" alt="" id="left"/>
+                <img src="right-arrow.png" alt="" id="right"/>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const right = document.getElementById('right'); 
+        const left = document.getElementById('left');  
+        let count = 0; 
+        let p = 'The Data Set We\'ll be acknowledging today examines each team in the final four. Here we will analyze the starting 5 of each rosters performance throughout the tournament. We will also be taking a look at the players chances of making it to the big league aka NBA. With this extensive data set we can draw accurate conclusions'; 
+        let p2 = 'In conclusion, we were able to find accurate predictions on which players dominate specific stat lines and who we will be expecting to see as a NBA star in the near future '; 
+        right.addEventListener('click', () =>{
+            count++; 
+            if(count === 1){
+              document.querySelector('.pres ul li h1').innerHTML = 'Data Set'; 
+              document.querySelector('.pres ul li p').innerHTML = p; 
+            }
+            if(count === 2){
+                document.querySelector('.pres ul li h1').innerHTML = 'Conclusion'; 
+                document.querySelector('.pres ul li p').innerHTML = p2; 
+            }
+            count === 3 ? count = 0 : count; 
+        });
+
+        left.addEventListener('click',()=>{
+           count--; 
+
+           if(count === 0){
+            count = 3; 
+           }
+        });
+    </script>
+</body>
+</html>
